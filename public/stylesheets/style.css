@@ -1,8 +1,22 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+h4{
+    margin: 5px 0;
+    text-align: center;
 }
 
-a {
-  color: #00B7FF;
+#login-form {
+    top: 50%;
+    left: 95%;
+    z-index: 1;
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    background: #fff;
+    transform: translate(-95%, -50%);
+    box-shadow: 0 2px 8px 0 #232323;
+}
+
+@media(max-width:580px){
+    .camera_caption{
+        display: none!important;
+    }
 }
