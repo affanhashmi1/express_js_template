@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="mui-container">
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Welcome to
+    <%= title %>
+  </p>
+
+  <table>
+    <% var count = 0; %>
+    <% for(var i = 0; i < data.rows; i++) { %>
+    <tr>
+      <% for(var j = 0; (j < data.cols && !!data.fields[count]); j++) { %>
+      <td>
+        <% if(data.fields[count].element === 'input') { %>
+        <div class="mui-textfield mui-textfield--float-label">
+          <input type="text">
+          <label>
+            <%= data.fields[count].label %>
+          </label>
+        </div>
+        <% } else if(data.fields[count].element === 'textarea') { %>
+        <div class="mui-textfield mui-textfield--float-label">
+          <textarea></textarea>
+          <label>
+            <%= data.fields[count].label %>
+          </label>
+        </div>
+        <% } else if(data.fields[count].element === 'radio') { %>
+        <div class="mui-radio">
+          <label>
+            <input type="radio" name="same" value="<%= data.fields[count].options %>">
+            <%= data.fields[count].label %>
+          </label>
+        </div>
+        <% } else if(data.fields[count].element === 'check') { %>
+        <div class="mui-checkbox">
+          <label>
+            <input type="checkbox" name="same" value="<%= data.fields[count].options %>">
+            <%= data.fields[count].label %>
+          </label>
+        </div>
+        <% } else { %>
+        <div class="mui-select">
+          <select>
+            <% for(var k = 0; k < data.fields[count].options.length; k++) { %>
+            <option value="<%= data.fields[count].options[k] %>">
+              <%= data.fields[count].options[k] %>
+            </option>
+            <% } %>
+          </select>
+          <label>
+            <%= data.fields[count].label %>
+          </label>
+        </div>
+        <% } %>
+        <% count++ %>
+      </td>
+      <% } %>
+    </tr>
+    <% } %>
+  </table>
+
+  <script src="//cdn.muicss.com/mui-0.9.41/js/mui.min.js"></script>
+</body>
+
+</html>
